@@ -6,7 +6,9 @@ No metadata is used. This makes it necessary to provide the IoC keys explicitly.
 
 ## Usage Recipe
 
-### step 1. define providers
+### 1. define provides
+
+Defined in the demo [here](src/demo/setupProvides.ts)
 
 ```ts
 
@@ -19,7 +21,11 @@ provide('IChat', John, [42]);
 provide('IParticle', Particle);
 ```
 
-### step 2a. get singletons
+### 2. get them
+
+Defined in the demo [here](src/demo/runGame.ts).
+
+Inject field or assign `getInstance` to it, if we want a singleton.
 
 ```ts
 class Bananas {
@@ -34,7 +40,7 @@ class Bananas {
 ```
 
 
-### step 2b. get classes (for non-singletons)
+Get classes via `getClass`, if not.
 
 ```ts
 const Particle = getClass<IParticle>('IParticle');
@@ -43,14 +49,13 @@ const p1 = new Particle(2, 1);
 
 ## Discussion
 
-This is more verbose, straightforward and less magical when compared to [typescript-ioc](https://github.com/thiagobustamante/typescript-ioc).
-Another difference is that the consumer of this IoC thing doesn't need to be using typescript.
+This is more verbose, straightforward and less magical when compared to [typescript-ioc](https://github.com/thiagobustamante/typescript-ioc). The consumer doesn't need to be using typescript.
 
-The value of the decorator is minimal. One could use the `getInstance` function I'm exposing instead.
+The value of the decorator is minimal as compared to the `getInstance` function.
 
-I suggest the provider interface should always be exported and used in place of the actual implementation everyone apart from the implementation itself.
+The provider interface should always be exported and used in place of the actual implementation by everyone apart from the implementation itself.
 
-If we were to adopt a rule, we could derive the key lookup from class field name.
+If we were to adopt a rule, we could derive the key lookup from class field name. ie `@inject iChat:IChat;` but we would still need to type the attribute.
 
 ## References
 
