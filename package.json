@@ -1,13 +1,12 @@
 {
   "name": "diy-ioc",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "DIY IoC solution and demo",
+  "main": "dist/ioc/index.js",
+  "types": "dist/ioc/index.d.ts",
   "scripts": {
     "build": "tsc"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "typescript": "beta"
   }

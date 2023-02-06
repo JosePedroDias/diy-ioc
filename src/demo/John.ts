@@ -1,9 +1,10 @@
-import { IChat } from "./Chat";
+import { IChat } from "./IChat";
 
 export class John implements IChat {
     age: number;
 
     constructor(age: number) {
+        //console.warn('GOT THIS PARAM', age);
         this.age = age;
     }
 

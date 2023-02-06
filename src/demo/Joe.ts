@@ -1,4 +1,4 @@
-import { IChat } from "./Chat";
+import { IChat } from "./IChat";
 
 export class Joe implements IChat {
     chat(): string {
